@@ -28,7 +28,7 @@ func New() *Interpreter {
 
 func main() {
 
-		dat, err := ioutil.ReadFile("/home/cference/.go/src/github.com/vezril/golang-brainfuck/src/hello.bf")
+		dat, err := ioutil.ReadFile("test/hello.bf")
 		check(err)
 		interpreter := New()
 
