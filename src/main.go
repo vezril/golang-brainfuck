@@ -33,7 +33,6 @@ func main() {
 		interpreter := New()
 
 		// Load instruction data into memory
-
 		for _,b := range dat {
 			interpreter.i.Write(b)
 			interpreter.i.Right()
@@ -52,17 +51,15 @@ func main() {
 				} else if token == 45 { // -
 					interpreter.d.Dec()
 				} else if token == 46 { // .
-					fmt.Println(string(interpreter.d.Read()))
+					fmt.Print(string(interpreter.d.Read()))
 				} else if token == 91 { // [
 					if interpreter.d.Read() == 0 {
+						fmt.Println("SyncToClosing")
 						interpreter.i.SyncToClosing()
 					}
 				} else if token == 93 { // ]
 					if interpreter.d.Read() != 0 {
 						interpreter.i.SyncToOpening()
-						// This is so the catch all instruction pointer gets set at the correct position.
-						// I should probably refactor this to something less ugly. switch-case maybe?
-						interpreter.i.Left()
 					}
 				} else if token == 0 {
 					signal = false
@@ -70,6 +67,4 @@ func main() {
 				// Increment instruction pointer
 				interpreter.i.Right()
 		}
-		//
-
 }
