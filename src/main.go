@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"github.com/vezril/go-cookiejar/collections/tape"
+	"github.com/vezril/golang-cookiejar/collections/tape"
 )
 
 func check(e error) {
